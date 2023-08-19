@@ -24,8 +24,19 @@ def page_not_found(e):
 
 #internal server error
 @app.errorhandler(500)
-def page_not_found(e):
-    return render_template("500.html"), 500
+def page_not_found(e):#passing in e "for ERROR"
+    return render_template("500.html"), 500 #corresponding erros for functions
+
+#Steps to create a ssh
+    #mkdir .ssh (the "." keeps the file hidden)
+    #cd to .ssh
+    #use command (ssh-keygen.exe) to generate key
+    #hit enter for first command to store key in current dir
+    #You can hit enter for last two commands or -setup private cerditals (save info)
+    #if you choose to setup private cred, if you forget passcode it wont work
+
+
+###
 
 
 
