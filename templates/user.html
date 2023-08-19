@@ -1,23 +1,31 @@
-<h1>Hello {{ user_name }}</h1>
+{% extends 'base.html' %}
 
 
-{% for topping in pizza%}
-    {{ topping }}<br/>
-{% endfor %}
+{% block content %}
 
-<br>
-<h1>This is how you get the index</h1>
-<br>
-{{ pizza.0 }}<br>
-{{ pizza.1 }}<br>
-{{ pizza.2 }}<br>
-{{ pizza.3 }}
+    <h1>Hello {{ user_name }}</h1>
 
-<h1>Using if Statement</h1>
-{% for topping in pizza%}
-    {% if topping == "chicken"%}
-        <p>You got a chicken order coming right up</p>
-    {% else %}
-        <p>If not that, then what</p>
-    {% endif %}
-{% endfor %}
+
+    {% for topping in pizza%}
+        {{ topping }}<br/>
+    {% endfor %}
+
+    <br>
+    <h1>This is how you get the index</h1>
+    <br>
+    {{ pizza.0 }}<br>
+    {{ pizza.1 }}<br>
+    {{ pizza.2 }}<br>
+    {{ pizza.3 }}
+
+    <h1>Using if Statement</h1>
+    {% for topping in pizza%}
+        {% if topping == "chicken"%}
+            <p>You got a chicken order coming right up</p>
+        {% else %}
+            <p>If not that, then what</p>
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}

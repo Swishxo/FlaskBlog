@@ -1,5 +1,16 @@
-<h1>Hello World</h1>
-<p>My first flask webpage!</p>
+{% extends 'base.html' %}
 
 
-{{favorite_pizza}}
+{% block content %}
+
+
+    <h1>Hello World</h1>
+    <p>My first flask webpage!</p>
+
+{% endblock %}
+
+{% block c%}
+
+    <p>A check to see if we can use multiple block on a single file</p>
+    
+{% endblock %}
