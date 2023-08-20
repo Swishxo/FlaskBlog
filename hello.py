@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 from flask_wtf import FlaskForm
 from wtforms import SearchField, SubmitField
 from wtforms.validators import DataRequired
@@ -32,6 +32,18 @@ def user(name):
 def base():
     return render_template("base.html")
 
+
+#Create a page for form
+@app.route('/name', methods=['GET', 'POST'])
+def form():
+    name = None #we use 'None' because no value is provided when form first loads
+    form = NamerForm() #the form class created above
+    # validating form
+    if form.validate_on_submit(): #check if form is filled when submit button is click
+        name = form.name.data #get class 'NamerForm' variable (name) data
+        form.name.data = '' #replace data w/ empty string
+    return render_template("name.html", name= name, form= form)
+
 #create custom error page
 
 #invalid URL
@@ -44,16 +56,7 @@ def page_not_found(e):
 def page_not_found(e):#passing in e "for ERROR"
     return render_template("500.html"), 500 #corresponding error (e) for functions
 
-#Create a page for form
-app.route("/name", methods=['GET', 'POST'])
-def name():
-    name = None #we use 'None' because no value is provided when form first loads
-    form = NamerForm() #the form class created above
-    # validating form
-    if form.validate_on_submit(): #check if form is filled when submit button is click
-        name = form.name.data #get class 'NamerForm' variable (name) data
-        form.name.data = '' #replace data w/ empty string
-    return render_template("name.html", name = name, form = form) #passing the data to HTML file
+
 
 
 if __name__ == '__main__':
