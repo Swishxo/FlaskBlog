@@ -42,7 +42,7 @@ def form():
     if form.validate_on_submit(): #check if form is filled when submit button is click
         name = form.name.data #get class 'NamerForm' variable (name) data
         form.name.data = '' #replace data w/ empty string
-    return render_template("name.html", name= name, form= form)
+    return render_template("form.html", name= name, form= form)
 
 #create custom error page
 
